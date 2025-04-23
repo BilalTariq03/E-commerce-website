@@ -1,0 +1,83 @@
+body{
+  margin: 0;
+}
+
+.header{
+  border-bottom: 1px solid rgb(217, 217, 217);
+  height: 85px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: rgb(255, 255, 255);
+ 
+}
+
+.header, .header-content{
+  display: flex;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  align-items: center;
+}
+
+header .shop-name{
+  margin: 0px;
+  margin: 0px 50px 0px 100px;
+}
+
+header ul{
+  list-style-type: none;
+  display: flex;
+  margin: 0px;
+  padding: 0;
+}
+
+header li a{
+  display: block;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  position: relative;
+}
+
+header a::after{
+  content:"";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: rgb(117, 116, 116);
+  transition: width 0.3s ease;
+}
+header a:hover::after{
+  width: 50%;
+}
+
+header input{
+  border: none;
+  background-color: rgb(241, 240, 240);
+  height: 20px;
+  width: 200px;
+  margin: 0px 50px 0px 110px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+header .links li a{
+  padding: 5px 18px;
+}
+
+header .icon{
+  background-color: rgb(240, 239, 239);
+  padding: 10px 8px;
+  border-radius: 10px;
+}
+
+header .links a::after{
+  width: 0%;
+}

@@ -1,0 +1,60 @@
+.footer{
+  color: white;
+  background-color: #414141;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 100px 40px 200px;
+  
+}
+
+.footer-section{
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-section h2{
+  font-family: Agbalumo;
+  margin-bottom: 10px;
+}
+
+.footer-section ul{
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li{
+  margin-bottom: 8px;
+}
+
+.footer a{
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+.footer a::after{
+  content:"";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+.footer a:hover::after{
+  width: 100%;
+}
+
+.Social-Section ul{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 200px;
+}
+
+.Social-Section a{
+  font-size: 30px;
+  margin-right: 20px;
+}
