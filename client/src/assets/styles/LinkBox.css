@@ -1,0 +1,42 @@
+.Link-grid{
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  align-items: center;
+  gap: 80px;
+  padding: 30px;
+}
+
+.Link-grid .category-card{
+  border-radius: 50px;
+  text-align: center;
+  width: 100px;
+  transition: 0.3s ease-in-out;
+}
+
+.category-card:hover{
+  transform: scale(1.05);
+}
+
+.category-card img{
+  width: 140;
+  height: 140;
+  object-fit: cover;
+  border-radius: 30% 0 30% 0;
+}
+
+.Link-grid .even-card img{
+  border-radius: 0 30% 0 30%;
+}
+
+.category-card a{
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.category-card p{
+  margin-top: 5px;
+}

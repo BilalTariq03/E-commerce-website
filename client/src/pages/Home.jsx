@@ -3,55 +3,40 @@ import Banner from "../components/Banner";
 import DealBlock from "../components/DealSection"
 import ReviewSection from "../components/Feedback";
 import Footer from "../components/Footer";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-import deal1 from "../assets/images/deals/deal1.jpg";
-import deal2 from "../assets/images/deals/deal2.jpg";
-import deal3 from "../assets/images/deals/deal3.jpg";
-import deal4 from "../assets/images/deals/deal4.jpg";
-import deal5 from "../assets/images/deals/deal5.jpg";
-
-
-const WomensDeals = [
-  {title: "Everyday Go", image: deal1, gridClass:""},
-  {title: "Essentials", image: deal3, gridClass:""},
-  {title: "Signature", image: deal2, gridClass:"tall"},
-  {title: "Monday to Friday", image: deal4, gridClass:""},
-  {title: "Anmol Pret", image: deal5, gridClass:""}
-]
-
-const MenDeals =[
-  {title: "Western", image: "https://picsum.photos/450/350", gridClass:"tall" },
-  {title: "Eastern", image: "https://picsum.photos/450/350", gridClass:"" },
-  {title: "Unstiched", image: "https://picsum.photos/450/350",gridClass:"" },
-  {title: "Shoes", image: "https://picsum.photos/450/350",gridClass:"" },
-  {title: "Fragrances", image: "https://picsum.photos/450/350",gridClass:"" },
-]
-
-const kidsDeal =[
-  {title: "Teen Boys", image: "https://picsum.photos/450/350",gridClass:"" },
-  {title: "Teen Girls", image: "https://picsum.photos/450/350",gridClass:"" },
-  {title: "Kid Boys", image: "https://picsum.photos/450/350",gridClass:"tall" },
-  {title: "Kid Girls", image: "https://picsum.photos/450/350",gridClass:"wide" },
-]
-
-const Accessories =[
-  {title: "Bags", image: "https://picsum.photos/250/200",gridClass:"" },
-  {title: "Shoes", image: "https://picsum.photos/250/200",gridClass:"" },
-  {title: "Jewlery", image: "https://picsum.photos/250/200",gridClass:"" },
-  {title: "Frarences", image: "https://picsum.photos/250/200",gridClass:"" },
-  {title: "Makeup", image: "https://picsum.photos/250/200",gridClass:"" },
-]
 
 function Home(){
+  const [menDeals,setMenDeals] =useState([]);
+  const [womenDeals,setWomenDeals] =useState([]);
+  const [kidsDeals,setKidsDeals] =useState([]);
+  const [accessories,setAccessories] =useState([]);
+
+  useEffect(()  =>{
+    const fetchDeals = async (section, setter) => {
+      try{
+        const res = await axios.get(`http://localhost:5000/deals?section=${section}`);
+        setter(res.data);
+      }catch(err){
+        console.error(`Error fetching ${section} deals`, err);
+      }
+    };
+    fetchDeals("Men",setMenDeals);
+    fetchDeals("Women", setWomenDeals);
+    fetchDeals(encodeURIComponent("Boys & Girls"), setKidsDeals);
+    fetchDeals("Accessories",setAccessories);
+  }, []);
+
   return(
     <div>
       <Navbar />
       <main>
         <Banner />
-        <DealBlock deals={WomensDeals} sectionPath="Women"/>
-        <DealBlock deals={MenDeals} sectionPath="Men"/>
-        <DealBlock deals={kidsDeal} sectionPath="Boys & Girls"/>
-        <DealBlock deals={Accessories} sectionPath="Accessories" className="deal-grid-small"/>
+        <DealBlock deals={womenDeals} sectionPath="Women"/>
+        <DealBlock deals={menDeals} sectionPath="Men"/>
+        <DealBlock deals={kidsDeals} sectionPath="Boys & Girls"/>
+        <DealBlock deals={accessories} sectionPath="Accessories" className="deal-grid-small"/>
         <ReviewSection/>
         <Footer/>
       </main>
