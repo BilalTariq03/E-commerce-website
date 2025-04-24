@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 import "../assets/styles/LinkBox.css";
+import axios from "axios";
 
-const categories =[
-  {name: "Eastern", image: "https://picsum.photos/140/140?1"},
-  {name: "Western", image: "https://picsum.photos/140/140?2"},
-  {name: "Unstiched", image: "https://picsum.photos/140/140?3"},
-  {name: "Shoes", image: "https://picsum.photos/140/140?4"}
-];
 
 function LinkBox({section}){
+  const [categories,setCategories] = useState([])
+
+  useEffect(() => {
+    const fetchSubCategories = async () => {
+      try {
+        const res = await axios.get(`http://localhost:5000/subcategories/${section}`);
+        setCategories(res.data); // Already contains name and image
+      } catch (err) {
+        console.error("Error fetching subcategories:", err);
+      }
+    };
+  
+    fetchSubCategories();
+  }, [section]);
+  
+
   return(
     <div className="Link-grid">
       {categories.map((category, index) => (

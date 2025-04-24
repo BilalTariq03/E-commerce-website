@@ -35,6 +35,12 @@
 .product-card button:hover{
   background-color: rgb(25, 25, 25);
   color: white;
+  cursor: pointer;
+}
+
+.product-card button:active{
+  transform: scale(0.98);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .product-card h4{

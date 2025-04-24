@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const productRoutes = require("./routes/productRoutes");
 const DealRoutes = require("./routes/DealRoutes");
+const SubCategoryRoutes = require("./routes/SubCategoryRoutes");
 
 const app = express();
 app.use(cors());
@@ -19,6 +20,7 @@ mongoose.connect("mongodb://localhost:27017/ecommerce", {
 //Routes
 app.use("/products", productRoutes);
 app.use("/deals", DealRoutes);
+app.use("/subcategories", SubCategoryRoutes);
 
 
 app.listen(5000, () => {

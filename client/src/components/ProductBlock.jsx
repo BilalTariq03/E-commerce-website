@@ -9,7 +9,9 @@ function ProductBlock({Products}){
     <div className="product-grid">
       {Products.map((product,index)=>(
         <div className="product-card">
-          <img src={product.image} alt={product.title} className="product-image" />
+          <Link to={`/product/${product._id}`}>
+            <img src={product.image} alt={product.title} className="product-image" />
+          </Link>
           <button> <BsHandbag/> Add To Cart</button>
           <div className="product-info">
             <h4 className="product-title">{product.title}</h4>
