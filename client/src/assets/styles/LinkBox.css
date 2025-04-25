@@ -40,3 +40,9 @@
 .category-card p{
   margin-top: 5px;
 }
+
+@media (max-width: 800px) {
+  .Link-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

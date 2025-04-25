@@ -11,7 +11,7 @@ function LinkBox({section}){
     const fetchSubCategories = async () => {
       try {
         const res = await axios.get(`http://localhost:5000/subcategories/${section}`);
-        setCategories(res.data); // Already contains name and image
+        setCategories(res.data); 
       } catch (err) {
         console.error("Error fetching subcategories:", err);
       }

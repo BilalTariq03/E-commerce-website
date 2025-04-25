@@ -4,6 +4,7 @@ const cors = require("cors");
 const productRoutes = require("./routes/productRoutes");
 const DealRoutes = require("./routes/DealRoutes");
 const SubCategoryRoutes = require("./routes/SubCategoryRoutes");
+const cartRoutes= require("./routes/cartRoutes");
 // server.js (entry point)
 const authRoutes = require('./routes/auth');
 
@@ -25,6 +26,7 @@ app.use("/products", productRoutes);
 app.use("/deals", DealRoutes);
 app.use("/subcategories", SubCategoryRoutes);
 app.use('/api', authRoutes);
+app.use("/cart", cartRoutes);
 
 app.listen(5000, () => {
   console.log("Server is running on port 5000");

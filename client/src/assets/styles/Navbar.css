@@ -1,8 +1,8 @@
-body{
+body {
   margin: 0;
 }
 
-.header{
+.header {
   border-bottom: 1px solid rgb(217, 217, 217);
   height: 85px;
   position: fixed;
@@ -11,39 +11,59 @@ body{
   width: 100%;
   z-index: 100;
   background-color: rgb(255, 255, 255);
- 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
 }
 
-.header, .header-content{
+.hamburger-menu{
+  display: none; /* Hidden by default */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 200;
+}
+
+.shop-name {
+  margin: 0;
+  font-size: 30px;
+  transition: all 0.3s ease;
+  margin-left: 100px;
+}
+
+.header-content {
   display: flex;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   align-items: center;
+  gap: 20px;
+  transition: all 0.3s ease;
 }
 
-header .shop-name{
-  margin: 0px;
-  margin: 0px 50px 0px 100px;
-}
-
-header ul{
+header ul {
   list-style-type: none;
   display: flex;
-  margin: 0px;
+  margin: 0;
   padding: 0;
+  transition: all 0.3s ease;
 }
 
-header li a{
+header li a {
   display: block;
-  padding: 10px 30px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   font-size: 20px;
   color: black;
   position: relative;
+  transition: all 0.3s ease;
 }
 
-header a::after{
-  content:"";
+header a::after {
+  content: "";
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -53,37 +73,195 @@ header a::after{
   background-color: rgb(117, 116, 116);
   transition: width 0.3s ease;
 }
-header a:hover::after{
+
+header a:hover::after {
   width: 50%;
 }
 
-header input{
+.search-box {
   border: none;
   background-color: rgb(241, 240, 240);
   height: 20px;
   width: 200px;
-  margin: 0px 50px 0px 110px;
   padding: 10px;
   border-radius: 10px;
   font-size: 15px;
+  transition: all 0.3s ease;
+  margin-left: 100px;
 }
 
-header .links li a{
-  padding: 5px 18px;
-}
-
-header .icon{
-  background-color: rgb(240, 239, 239);
-  padding: 10px 8px;
-  border-radius: 10px;
-}
-
-header .links a::after{
-  width: 0%;
-}
-
-* {
+.links {
+  display: flex;
   transition: all 0.3s ease;
 }
 
+.icon {
+  background-color: rgb(240, 239, 239);
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
 
+@media (max-width: 1400px) {
+  .header {
+    margin-left: 50px;
+  }
+
+  .shop-name {
+    margin-left: 0;
+  }
+
+  .search-box{
+    margin-left: 50px;
+  }
+
+  .links{
+    margin-right: 50px
+  }
+  
+}
+
+@media (max-width: 1250px) {
+  .header {
+    margin-left: 20px;
+  }
+
+  .shop-name {
+    margin-left: 0;
+  }
+
+  .search-box{
+    margin-left: 20px;
+  }
+
+  .links{
+    margin-right: 20px
+  }
+
+  .search-box{
+    width: 150px;
+  }
+
+  .links a{
+    padding: 10px;
+    font-size: 18px
+  }
+
+  .navbar li a{
+    font-size: 18px;
+  }
+  
+}
+
+@media (max-width: 1050px) {
+
+  .shop-name {
+    margin-left:300px
+  }
+
+  .hamburger-menu {
+    display: block; 
+    position: absolute;
+    left: 10px
+  }
+  
+  .navbar ul {
+    position: fixed;
+    top: 85px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 85px);
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 30px;
+    transition: all 0.4s ease;
+  }
+  
+  .navbar.active ul {
+    left: 0;
+  }
+  
+  .header-content {
+    justify-content: center;
+  }
+  
+  .search-box {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .header {
+    margin-left: 0;
+    align-items: center;
+  
+  }
+
+  .shop-name {
+    margin-left: 150px;
+    font-size: 24px;
+  }
+
+  .search-box{
+    margin-left: 0;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .links{
+    margin-right: 0
+  }
+
+  .search-box{
+    width: 100px;
+  }
+
+  .links a{
+    padding: 5px;
+    font-size: 15px
+  }
+
+  .navbar li a{
+    font-size: 15px;
+  }
+  
+}
+
+@media (max-width: 600px) {
+  .header {
+    margin-left: 0;
+    align-items: center;
+  
+  }
+
+  .shop-name {
+    margin-left: 100px;
+    font-size: 20px;
+  }
+
+  .search-box{
+    margin-left: 0;
+    padding: 5px;
+    font-size: 10px;
+  }
+
+  .links{
+    margin-right: 0
+  }
+
+  .search-box{
+    width: 80px;
+  }
+
+  .links a{
+    padding: 5px;
+    font-size: 12px
+  }
+
+  .navbar li a{
+    font-size: 12px;
+  }
+  
+}

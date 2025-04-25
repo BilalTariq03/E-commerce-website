@@ -83,3 +83,99 @@ function Cart() {
 }
 
 export default Cart;
+
+/*
+import { useEffect, useState } from "react";
+import Navbar from "../components/Navbar";
+import CartItem from "../components/CartItem";
+import Footer from "../components/Footer";
+import "../assets/styles/Cart.css"; // Optional CSS
+import axios from "axios";
+
+function Cart() {
+  const [cartItems, setCartItems] = useState([]);
+
+  // Fetch cart items from the backend
+  useEffect(() => {
+    const fetchCart = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/cart"); // Update if your baseURL is different
+        const backendItems = response.data;
+
+        // Flattening backend structure (if needed)
+        const formattedItems = backendItems.flatMap(cart =>
+          cart.items.map(item => ({
+            id: item._id,
+            title: item.productId?.title || "Unknown Product",
+            image: item.productId?.image || "https://via.placeholder.com/100",
+            price: item.price,
+            quantity: item.quantity,
+            productId: item.productId?._id || null,
+          }))
+        );
+
+        setCartItems(formattedItems);
+      } catch (err) {
+        console.error("Failed to fetch cart data:", err);
+      }
+    };
+
+    fetchCart();
+  }, []);
+
+  const handleIncrement = (id) => {
+    const updated = cartItems.map(item =>
+      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+    );
+    setCartItems(updated);
+  };
+
+  const handleDecrement = (id) => {
+    const updated = cartItems.map(item =>
+      item.id === id && item.quantity > 1
+        ? { ...item, quantity: item.quantity - 1 }
+        : item
+    );
+    setCartItems(updated);
+  };
+
+  const handleDelete = (id) => {
+    const updated = cartItems.filter(item => item.id !== id);
+    setCartItems(updated);
+  };
+
+  const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+  return (
+    <div>
+      <Navbar />
+      <div className="cart-container">
+        <h2 className="cart-heading">Shopping Bag ({cartItems.length} items)</h2>
+
+        <div className="cart-content">
+          <div className="cart-items">
+            {cartItems.map((item) => (
+              <CartItem
+                key={item.id}
+                item={item}
+                onIncrement={handleIncrement}
+                onDecrement={handleDecrement}
+                onDelete={handleDelete}
+              />
+            ))}
+          </div>
+
+          <div className="cart-summary">
+            <h3>SUBTOTAL</h3>
+            <p>Rs. {total.toLocaleString()}</p>
+            <button className="checkout-btn">CHECK OUT</button>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
+}
+
+export default Cart;*/
+

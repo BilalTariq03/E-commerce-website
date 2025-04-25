@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom"
 import '../assets/styles/Navbar.css'
 import { FiShoppingCart, FiUser, FiHeart } from 'react-icons/fi'
+import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
+
 
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <header className="header">
       <h1 className="shop-name">ANMOL</h1>
       <div className="header-content">
-        <nav className="navbar">
+
+        <button className="hamburger-menu" onClick={toggleMenu}> {isMenuOpen ? <RxCross1 size={24} /> : <RxHamburgerMenu size={24} />} </button>
+        <nav className={`navbar ${isMenuOpen ? "active" : ""}`}>
           <ul>
             <li> <Link to="/home" className="Home-link">Home</Link> </li>
             <li> <Link to="/Men" className="men-clothing-link">Men</Link> </li>

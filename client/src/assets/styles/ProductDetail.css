@@ -33,7 +33,7 @@
 
 }
 
-.product-info{
+.product-detail-container .product-info{
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid black;

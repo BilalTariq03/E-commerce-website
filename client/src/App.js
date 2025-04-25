@@ -2,8 +2,8 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Men from './pages/Men';
-import Women from './pages/Women';
+import CategoryPage from './pages/CategoryPage';
+import SubCategory from './pages/SubCategory';
 import ProductDetail from './pages/ProductDetail';
 import Cart from "./pages/Cart" ;
 // File: src/App.js
@@ -14,8 +14,8 @@ export default function App() {
   return (
       <Routes>
             <Route path="/" element={<Home/>} />
-            <Route path="/Men" element={<Men/>} />
-            <Route path="/Women" element={<Women/>} />
+            <Route path="/:category" element={<CategoryPage/>}/>
+            <Route path="/:category/:subcategory" element={<SubCategory />} />
             <Route path="/product/:id" element={<ProductDetail/>}/>
             <Route path="/Cart" element={<Cart/>} />
             <Route path="/Profile" element={<Login />} />

@@ -48,3 +48,63 @@
   transform: scale(1.05);
   cursor: pointer;
 }
+
+@media (max-width: 1200px) {
+  .banner-text {
+    top: 200px;
+    left: 100px;
+    text-align: center;
+  }
+
+  .banner-text h1 {
+    font-size: 36px;
+  }
+
+  .banner-text p {
+    font-size: 24px;
+  }
+
+  .banner-text button {
+    font-size: 18px;
+    padding: 8px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-text {
+    top: 20%;
+    left: 5%;
+  }
+
+  .banner-text h1 {
+    font-size: 6vw;
+  }
+
+  .banner-text p {
+    font-size: 4vw;
+  }
+
+  .banner-text button {
+    font-size: 4vw;
+    padding: 8px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-image {
+    height: 50vh;
+  }
+
+  .banner-text h1 {
+    font-size: 7vw;
+  }
+
+  .banner-text p {
+    font-size: 5vw;
+  }
+
+  .banner-text button {
+    font-size: 4.5vw;
+    padding: 6px 16px;
+  }
+}

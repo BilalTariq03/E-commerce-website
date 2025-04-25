@@ -27,7 +27,6 @@ function Home(){
     fetchDeals("Women", setWomenDeals);
     fetchDeals(encodeURIComponent("Boys & Girls"), setKidsDeals);
     fetchDeals("Accessories",setAccessories);
-    fetchDeals("Cart",setCart);
   }, []);
 
   return(
@@ -37,7 +36,6 @@ function Home(){
         <Banner />
         <DealBlock deals={womenDeals} sectionPath="Women"/>
         <DealBlock deals={menDeals} sectionPath="Men"/>
-        <DealBlock deals={cartItoms} sectionPath="Cart"/>
         <DealBlock deals={kidsDeals} sectionPath="Boys & Girls"/>
         <DealBlock deals={accessories} sectionPath="Accessories" className="deal-grid-small"/>
         <ReviewSection/>
