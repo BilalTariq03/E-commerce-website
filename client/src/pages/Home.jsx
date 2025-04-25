@@ -17,7 +17,7 @@ function Home(){
   useEffect(()  =>{
     const fetchDeals = async (section, setter) => {
       try{
-        const res = await axios.get(`http://localhost:5000/deals?section=${section}`);
+        const res = await axios.get(`${process.env.REACT_APP_API_BASE}/deals?section=${section}`);
         setter(res.data);
       }catch(err){
         console.error(`Error fetching ${section} deals`, err);

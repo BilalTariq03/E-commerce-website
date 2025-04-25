@@ -20,7 +20,7 @@ function SubcategoryPage() {
         const encodedCategory = encodeURIComponent(category);
         const encodedSubcategory = encodeURIComponent(subcategory);
         const res = await axios.get(
-          `http://localhost:5000/products/${encodedCategory}/${encodedSubcategory}`
+          `${process.env.REACT_APP_API_BASE}/products/${encodedCategory}/${encodedSubcategory}`
         );
         setProducts(res.data);
       } catch (err) {

@@ -16,7 +16,7 @@ export default function Signup() {
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:5000/api/signup', { username, email, password });
+            const res = await axios.post(`${process.env.REACT_APP_API_BASE}/api/signup`, { username, email, password });
             console.log(res.data);
             if (res.data.success) {
                 console.log('success');
