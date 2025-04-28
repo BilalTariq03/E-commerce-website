@@ -13,7 +13,7 @@ const authRoutes = require('./routes/auth');
 
 const app = express();
 app.use(cors({
-  origin: ["https://e-commerce-website-chi-three-28.vercel.app/"],
+  origin: [`${process.env.FRONTEND_URL}`],
   credentials: true
 }));
 app.use(express.json());
@@ -33,9 +33,11 @@ app.use("/subcategories", SubCategoryRoutes);
 app.use('/api', authRoutes);
 app.use("/cart", cartRoutes);
 
-app.listen(5000, () => {
-  console.log("Server is running on port 5000");
-})
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
 
 
 
