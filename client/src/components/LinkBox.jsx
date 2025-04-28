@@ -10,7 +10,7 @@ function LinkBox({section}){
   useEffect(() => {
     const fetchSubCategories = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/subcategories/${section}`);
+        const res = await axios.get(`${process.env.REACT_APP_API_BASE}/${section}`);
         setCategories(res.data); 
       } catch (err) {
         console.error("Error fetching subcategories:", err);
