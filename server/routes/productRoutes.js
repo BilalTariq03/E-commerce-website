@@ -3,6 +3,20 @@ const router = express.Router()
 const Product = require("../models/product")
 
 
+//get by id
+router.get("/detail/:id", async (req,res) => {
+  try{
+    const product = await Product.findById(req.params.id);
+    if(!product){
+      return res.status(404).json({error: "Product not found"});
+    }
+    res.json(product);
+  }catch(err){
+    console.error("Error fetching product:", err);
+    res.status(500).json({error: "server error"})
+  }
+});
+
 //get all products
 router.get("/:category", async(req, res)=> {
   try{
@@ -31,19 +45,7 @@ router.get("/:category/:subcategory", async (req, res) => {
 });
 
 
-//get by id
-router.get("/detail/:id", async (req,res) => {
-  try{
-    const product = await Product.findById(req.params.id);
-    if(!product){
-      return res.status(404).json({error: "Product not found"});
-    }
-    res.json(product);
-  }catch(err){
-    console.error("Error fetching product:", err);
-    res.status(500).json({error: "server error"})
-  }
-});
+
 
 router.post("/", async(req, res)=> {
   try{
