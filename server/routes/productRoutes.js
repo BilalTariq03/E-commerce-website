@@ -15,10 +15,8 @@ router.get("/:category", async(req, res)=> {
 
 
 //get all subcategory products
-router.get("/:category/:subCategory", async (req, res) => {
-  console.log('Here first')
+router.get("/:category/:subcategory", async (req, res) => {
   try {
-    console.log('Here I am');
     const { category, subcategory } = req.params;
     console.log(`Received category: ${category}, subcategory: ${subcategory}`); // Log the parameters
     const products = await Product.find({ category, subCategory: subcategory });
