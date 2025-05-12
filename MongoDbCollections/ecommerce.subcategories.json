@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Casual Shirts",
+    "category": "Men",
+    "image": "https://example.com/images/casual-shirts.jpg"
+  },
+  {
+    "name": "Formal Shirts",
+    "category": "Men",
+    "image": "https://example.com/images/formal-shirts.jpg"
+  },
+  {
+    "name": "Kurtis",
+    "category": "Women",
+    "image": "https://example.com/images/kurtis.jpg"
+  },
+  {
+    "name": "Sarees",
+    "category": "Women",
+    "image": "https://example.com/images/sarees.jpg"
+  },
+  {
+    "name": "Kids Wear",
+    "category": "Kids",
+    "image": "https://example.com/images/kidswear.jpg"
+  },
+  {
+    "name": "Footwear",
+    "category": "Accessories",
+    "image": "https://example.com/images/footwear.jpg"
+  }
+]

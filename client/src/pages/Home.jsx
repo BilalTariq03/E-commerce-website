@@ -17,7 +17,8 @@ function Home(){
   useEffect(()  =>{
     const fetchDeals = async (section, setter) => {
       try{
-        const res = await axios.get(`${process.env.REACT_APP_API_BASE}/deals?section=${section}`);
+        const res = await axios.get(`http://localhost:5000/deals?section=${section}`);
+
         setter(res.data);
       }catch(err){
         console.error(`Error fetching ${section} deals`, err);
@@ -27,6 +28,7 @@ function Home(){
     fetchDeals("Women", setWomenDeals);
     fetchDeals(encodeURIComponent("Boys & Girls"), setKidsDeals);
     fetchDeals("Accessories",setAccessories);
+    fetchDeals("Cart",setCart);
   }, []);
 
   return(
@@ -38,6 +40,7 @@ function Home(){
         <DealBlock deals={menDeals} sectionPath="Men"/>
         <DealBlock deals={kidsDeals} sectionPath="Boys & Girls"/>
         <DealBlock deals={accessories} sectionPath="Accessories" className="deal-grid-small"/>
+        <DealBlock deals={cartItoms} sectionPath="Cart"/>
         <ReviewSection/>
         <Footer/>
       </main>

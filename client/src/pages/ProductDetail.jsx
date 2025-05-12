@@ -10,7 +10,9 @@ function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
+  const [cart, setCart] = useState([]);
 
+  // Fetch product data
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -21,11 +23,48 @@ function ProductDetail() {
       }
     };
 
+    // Fetch cart data from localStorage
+    const fetchCartFromLocalStorage = () => {
+      const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+      setCart(cartData);
+    };
+
     fetchProduct();
+    fetchCartFromLocalStorage();
   }, [id]);
 
+  // Handle size selection
   const handleSizeClick = (size) => {
     setSelectedSize(size);
+  };
+
+  // Add item to cart
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      alert("Please select a size before adding to cart.");
+      return;
+    }
+
+    const updatedCart = [...cart];
+    const existingProductIndex = updatedCart.findIndex(
+      item => item.productId === product._id && item.size === selectedSize
+    );
+
+    if (existingProductIndex !== -1) {
+      updatedCart[existingProductIndex].quantity += 1; // Increment quantity if the product already exists in the cart
+    } else {
+      updatedCart.push({
+        productId: product._id,
+        size: selectedSize,
+        quantity: 1,
+        price: product.price,
+      });
+    }
+
+    // Update localStorage with the updated cart
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setCart(updatedCart); // Update state
+    alert("Item added to cart!");
   };
 
   if (!product) {
@@ -52,7 +91,7 @@ function ProductDetail() {
               {size}
             </button>
           ))}
-          <button className="Add-to-cart-btn">
+          <button className="Add-to-cart-btn" onClick={handleAddToCart}>
             <BsHandbag /> Add To Cart
           </button>
         </div>

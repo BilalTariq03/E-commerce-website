@@ -6,6 +6,7 @@ import CategoryPage from './pages/CategoryPage';
 import SubCategory from './pages/SubCategory';
 import ProductDetail from './pages/ProductDetail';
 import Cart from "./pages/Cart" ;
+import CheckOut from "./pages/CheckOut" ;
 // File: src/App.js
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/Profile" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/CheckOut" element={<CheckOut/>} />
     </Routes>
     
         

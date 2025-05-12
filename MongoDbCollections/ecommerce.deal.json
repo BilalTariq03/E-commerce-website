@@ -1,0 +1,26 @@
+[
+  {
+    "section": "Hot Deals",
+    "title": "50% Off Summer Collection",
+    "image": "https://picsum.photos/200/300",
+    "gridClass": "deal-grid-1"
+  },
+  {
+    "section": "Limited Time Offer",
+    "title": "New Arrivals - 30% Off",
+    "image": "https://picsum.photos/200/301",
+    "gridClass": "deal-grid-2"
+  },
+  {
+    "section": "Exclusive Deal",
+    "title": "Buy 1 Get 1 Free on All Accessories",
+    "image": "https://picsum.photos/200/302",
+    "gridClass": "deal-grid-3"
+  },
+  {
+    "section": "Seasonal Sale",
+    "title": "Up to 70% Off Winter Collection",
+    "image": "https://picsum.photos/200/303",
+    "gridClass": "deal-grid-4"
+  }
+]
