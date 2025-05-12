@@ -34,7 +34,7 @@ This is a full-stack e-commerce website built using the MERN stack (MongoDB, Exp
 Imlementd main page, category pages, product detail page and their backend
 
 ### Muhammad Azeem Ashfaq (22I-1057)
-Implemeented Cart
+Implemeented Cart, Checkout, Add button and place order, dataCollection
 
 ### Muhammad Nabeed Haider (22I-0871)
 Implemented login and signup
